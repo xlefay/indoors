@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# Inspired by http://www.qdb.us/307755
+#
+# Example:
+#   $ indoors 
+#   06:42:36 not seen light in 5 days, 11:55, 7 meals, kcal average: 2.01, 2.07, 2.12
+
+# Get the output of uptime.
+INDOORS=`uptime`
+
+# Manipulate the INDOORS string.
+INDOORS=${INDOORS//up/not seen light in}
+INDOORS=${INDOORS//user/meal}
+INDOORS=${INDOORS//load/kcal}
+
+# Show our awesomeness.
+echo $INDOORS;
