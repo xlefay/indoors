@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# Install the indoors script.
+
+# Check if we've got root access.
+if [[ $UID != 0 ]]; then
+    echo "Please start this script as root or use sudo!"
+    exit 1
+fi
+
+# Ensure the indoors script is in the current directory.
+if [[ ! -f ./indoors ]]; then
+    echo "Whoops, can't find the indoors script!"
+    exit 1
+fi
+
+# Let's assume 'chmod' & 'cp' are findable $PATH
+# We do.. let's make the file executable.
+chmod +x ./indoors
+cp ./indoors /usr/local/bin/
+
+# Conclusion..
+echo "If there were no errors then copying the indoors script to /usr/local/bin was
+successful, try it by running: indoors"
+
+exit 0
